@@ -20,11 +20,23 @@ export async function getAllUsers(){
 export async function createUser(employee_id: string){
     try{
         console.log(employee_id, 'DEBUG emp id received');
-        await UsersRepository.create(employee_id);
+        const existingRecord = await UsersRepository.findByEmployeeId(employee_id);
         const token = await generateAccessToken(employee_id);
+        if(!empty(existingRecord)){
+            return {
+                statusCode: 200,
+                data: {
+                    employee_id: existingRecord.toJSON().employee_id,
+                    token,
+                },
+            }
+        }
+        const record = await UsersRepository.create(employee_id);
+        
         return {
             statusCode: 200,
             data: {
+                employee_id: record.toJSON().employee_id,
                 token,
             },
         }
@@ -38,6 +50,7 @@ export async function createUser(employee_id: string){
 
 export async function getUser(employee_id: string){
     try{
+        
         const record = await UsersRepository.findByEmployeeId(employee_id);
         
         if(!empty(record)){
@@ -45,7 +58,7 @@ export async function getUser(employee_id: string){
             return {
                 statusCode: 200,
                 data: {
-                    emp: record.toJSON(),
+                    employee_id: record.toJSON().employee_id,
                     token,
                 },
             }
