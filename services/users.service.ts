@@ -12,7 +12,7 @@ export async function getAllUsers(){
     }catch(e){
         return {
             statusCode: 500,
-            message: "internal Server Erorr"
+            message: e.message
         }
     }
 }
@@ -31,7 +31,7 @@ export async function createUser(employee_id: string){
     }catch(e){
         return {
             statusCode: 500,
-            message: "internal Server Erorr"
+            message: e.message
         }
     }
 }
@@ -59,7 +59,7 @@ export async function getUser(employee_id: string){
     }catch(e){
         return {
             statusCode: 500,
-            message: "internal Server Erorr"
+            message: e.message
         }
     }
 }
