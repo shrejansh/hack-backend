@@ -2,14 +2,33 @@
   "name": "hack-backend",
   "version": "1.0.0",
   "description": "Backend for hack web app",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "dev",
-    "start": "node index.js"
+    "start": "nodemon index.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "@types/express": "^4.17.21",
+    "babel-plugin-import": "^1.13.8",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.0.2",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "pg-promise": "^11.5.4",
+    "sequelize": "^6.35.2",
+    "sequelize-cli": "^6.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1",
+    "@types/is-empty": "^1",
+    "@types/jsonwebtoken": "^9"
   }
 }
