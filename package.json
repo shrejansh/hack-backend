@@ -1,0 +1,15 @@
+{
+  "name": "hack-backend",
+  "version": "1.0.0",
+  "description": "Backend for hack web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "dev",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
