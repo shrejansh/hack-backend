@@ -6,7 +6,8 @@ const sequelize = new Sequelize(db_uri, {
   protocol: 'postgres',
   dialectOptions: {
     ssl: {
-      require: false
+      require: false,
+      rejectUnauthorized: false
     }
   }, //removed ssl
 });
