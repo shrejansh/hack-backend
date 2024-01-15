@@ -6,7 +6,7 @@ export default class IdeaRepository {
             const idea = await Idea.create({
                 user_id,
                 name,
-                description,
+                desc: description,
                 upvotes: 0,
                 createdAt: new Date(),
                 updatedAt: new Date(),

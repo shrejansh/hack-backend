@@ -15,8 +15,8 @@ export const Idea = sequelize.define('Idea', {
   name: {
     type: DataTypes.STRING,
   },
-  description: {
-    type: DataTypes.STRING,
+  desc: {
+    type: DataTypes.TEXT,
   },
   upvotes: {
     type: DataTypes.NUMBER,
