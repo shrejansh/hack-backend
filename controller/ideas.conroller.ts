@@ -1,5 +1,5 @@
 import UsersRepository from "../repositories/users.repo";
-import { createIdea, getAllIdeas } from "../services/ideas.service";
+import { createIdea, getAllIdeas, upvoteIdea } from "../services/ideas.service";
 import empty from 'is-empty';
 
 export async function makeIdea(req: any, res: any){
@@ -27,4 +27,11 @@ export async function getIdeas(req: any, res: any) {
     return res.status(statusCode).send({
         message
     })
+}
+
+export async function upvote(req: any, res: any){
+    const {  statusCode, message } = await upvoteIdea(req.body);
+    return res.status(statusCode).send({
+        message
+    });
 }

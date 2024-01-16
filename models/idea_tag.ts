@@ -1,5 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from ".";
+import { Tag } from "./tag";
+import { Idea } from "./idea";
 
 export const IdeaTag = sequelize.define('IdeaTag', {
   id: {
@@ -23,5 +25,7 @@ export const IdeaTag = sequelize.define('IdeaTag', {
     type: DataTypes.DATE,
   }
 }, {
-  tableName: 'idea_tag'
+  tableName: 'idea_tags',
 });
+
+IdeaTag.hasMany(Tag);

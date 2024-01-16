@@ -24,7 +24,7 @@ export default class UsersRepository {
         try{
             const record = await User.findOne({
                 where: {
-                    employee_id
+                    employee_id: employee_id,
                 }
             });
             return record;

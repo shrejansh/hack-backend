@@ -1,6 +1,7 @@
 // import express from 'express';
 import { authenticateToken } from './auth';
-import { getIdeas, makeIdea } from './controller/ideas.conroller';
+import { getIdeas, makeIdea, upvote } from './controller/ideas.conroller';
+import { getTags } from './controller/tags.controller';
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -16,7 +17,9 @@ app.get('/get-all', getUsers);
 app.post('/user', checkExistingUser);
 app.post('/create-user', createNewUser);
 app.post('/challenge', authenticateToken, makeIdea);
-app.get('/challenge', authenticateToken, getIdeas)
+app.get('/challenge', authenticateToken, getIdeas);
+app.get('/tags', authenticateToken, getTags);
+app.post('/upvote', authenticateToken, upvote)
 app.get('/', (req: any, res: any)=> {
     return res.json({
         message: "Hellow Wooorls"

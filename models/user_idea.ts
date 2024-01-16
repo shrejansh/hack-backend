@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from ".";
 
-export const IdeaTag = sequelize.define('IdeaTag', {
+export const UserIdea = sequelize.define('UserIdea', {
   id: {
     primaryKey: true,
     autoIncrement: true,
@@ -26,5 +26,5 @@ export const IdeaTag = sequelize.define('IdeaTag', {
     type: DataTypes.DATE,
   }
 }, {
-  tableName: 'idea_tag'
+  tableName: 'user_ideas'
 });
