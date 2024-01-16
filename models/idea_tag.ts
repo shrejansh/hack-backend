@@ -28,4 +28,3 @@ export const IdeaTag = sequelize.define('IdeaTag', {
   tableName: 'idea_tags',
 });
 
-IdeaTag.hasMany(Tag);
