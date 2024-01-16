@@ -3,7 +3,9 @@ import { Tag } from "../models/tag";
 export default class TagsRepository {
     static async getAll(){
         try{
-            const records = await Tag.findAll();
+            const records = await Tag.findAll({
+                attributes: ['id', 'name'],
+            });
             return records;
         }catch(e){
             console.log('Error occurred while fetching all tags', e.message);
