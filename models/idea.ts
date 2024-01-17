@@ -30,3 +30,5 @@ export const Idea = sequelize.define('Idea', {
 }, {
   tableName: 'ideas'
 });
+
+

@@ -15,18 +15,5 @@ module.exports  = {
     },
    
   },
-  "test": {
-    "username": "YYwB3Ou4BE3gqXq4Y4CGxNuACrhRxEvn@dpg-cmguvmnqd2ns73fmtffg-a/hack_db_instance",
-    "password": null,
-    "database": "database_test",
-    "host": "postgres://hack_db_instance_user:YYwB3Ou4BE3gqXq4Y4CGxNuACrhRxEvn@dpg-cmguvmnqd2ns73fmtffg-a/hack_db_instance",
-    "dialect": "postgres"
-  },
-  "production": {
-    "username": "YYwB3Ou4BE3gqXq4Y4CGxNuACrhRxEvn@dpg-cmguvmnqd2ns73fmtffg-a/hack_db_instance",
-    "password": null,
-    "database": "database_production",
-    "host": "postgres://hack_db_instance_user:YYwB3Ou4BE3gqXq4Y4CGxNuACrhRxEvn@dpg-cmguvmnqd2ns73fmtffg-a/hack_db_instance",
-    "dialect": "postgres"
-  }
+
 }
