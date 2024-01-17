@@ -1,4 +1,5 @@
 import { generateAccessToken } from "../auth";
+import UserIdeaRepository from "../repositories/user_idea.repo";
 import UsersRepository from "../repositories/users.repo";
 import empty from 'is-empty';
 
@@ -75,4 +76,34 @@ export async function getUser(employee_id: string){
             message: e.message
         }
     }
+}
+
+export async function getUserIdea(reqBody: any){
+    const idea_id = reqBody.idea_id;
+    const employee_id = reqBody.employee_id;
+    const user = await UsersRepository.findByEmployeeId(employee_id);
+    if(empty(user)){
+        return {
+            statusCode: 400,
+            message: "User doesn't exist",
+        }
+    }
+    try{
+        const record = await UserIdeaRepository.findByUserIdAndIdeaId(user.toJSON().id, idea_id);
+        if(empty(record)){
+            return {
+                statusCode: 200,
+                data: { upvoted: false },
+            }
+        }
+        return {
+            statusCode: 200,
+            data: { upvoted: record.toJSON().upvoted },
+        }
+    }catch(e){
+        return {
+            statusCode: 500,
+            message: e.message
+        }
+    } 
 }

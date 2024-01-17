@@ -1,4 +1,4 @@
-import { createUser, getAllUsers, getUser } from "../services/users.service";
+import { createUser, getAllUsers, getUser, getUserIdea } from "../services/users.service";
 
 export async function getUsers(req: any, res: any){
     const { statusCode, message, data } = await getAllUsers();
@@ -41,3 +41,20 @@ export async function checkExistingUser(req: any, res: any){
         })
     }
 }
+
+export async function userUpvote(req: any, res: any){
+    const reqBody = req.query;
+    console.log(req.body, 'DEBUG request');
+    const { statusCode, message, data } = await getUserIdea(reqBody);
+    if(statusCode === 200){
+        return res.status(statusCode).send({
+            data
+        })
+    }else{
+        return res.status(statusCode).send({
+            message,
+        })
+    }
+}
+
+

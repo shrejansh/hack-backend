@@ -6,7 +6,7 @@ import { getTags } from './controller/tags.controller';
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-import { checkExistingUser, createNewUser, getUsers } from './controller/users.controller';
+import { checkExistingUser, createNewUser, getUsers, userUpvote } from './controller/users.controller';
 
 // const router = getRoutes();
 const app = express();
@@ -19,7 +19,8 @@ app.post('/create-user', createNewUser);
 app.post('/challenge', authenticateToken, makeIdea);
 app.get('/challenge', authenticateToken, getIdeas);
 app.get('/tags', authenticateToken, getTags);
-app.post('/upvote', authenticateToken, upvote)
+app.post('/upvote', authenticateToken, upvote);
+app.get('/upvote', authenticateToken, userUpvote);
 app.get('/', (req: any, res: any)=> {
     return res.json({
         message: "Hellow Wooorls"
